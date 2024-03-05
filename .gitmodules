@@ -1,1 +1,4 @@
 
+[submodule "subModS1"]
+	path = subModS1
+	url = https://github.com/fah-dnu/subModS1
