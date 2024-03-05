@@ -1,0 +1,30 @@
+name: Compilar Submódulo
+on: 
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+    
+jobs:
+  Compilar:
+    runs-on: windows-latest
+    
+    steps:
+      #Ver lo que tiene el repositorio, utilizando recursive para que la MV tenga los submódulos
+      - name: Checkout 
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+
+      #Instalar .NET     
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x    
+
+      #Compilar el submódulo
+      - name: Restore and build
+        run: |
+          pwd
+        #cd /subModS1
+        #dotnet build
