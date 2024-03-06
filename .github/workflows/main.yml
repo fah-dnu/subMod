@@ -25,6 +25,6 @@ jobs:
       #Compilar el submódulo
       - name: Restore and build
         run: |
+          cd /subModS1
           pwd
-        #cd /subModS1
         #dotnet build
