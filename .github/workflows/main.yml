@@ -26,8 +26,5 @@ jobs:
       - name: Restore and build
         run: |
           pwd
-          cd D:\DocumentosDNU\CSharp\subComp\subModS1
           ls
-          
-        #pwd
         #dotnet build
