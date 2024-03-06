@@ -11,20 +11,28 @@ jobs:
     
     steps:
       #Ver lo que tiene el repositorio, utilizando recursive para que la MV tenga los submódulos
-      - name: Checkout 
+      - name: Checkout del repositorio 
         uses: actions/checkout@v3
         with:
           submodules: 'recursive'
 
       #Instalar .NET     
-      - name: Install .NET Core
+      - name: Instalar .NET Core
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x    
 
       #Compilar el submódulo
-      - name: Restore and build
+      - name: Restaurar y construir/compilar
         run: |
           cd D:\a\subMod\subMod\subModS1
           ls
-        #dotnet build
+          dotnet build
+
+          
+      - name: Subir artefactos
+        uses: actions/upload-artifact@v3
+        with:
+          name: Ejecutables
+          path: |
+            D:\a\subMod\subMod\subModS1
